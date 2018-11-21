@@ -13,3 +13,4 @@ yarn-error.log
 
 #!dist/index.html
 .firebaserc
+.firebase
