@@ -39,6 +39,15 @@ export default {
       selectedIndex: 0
     };
   },
+  created: function() {
+    // ユーザーごとにメモを取得
+    firebase.database().ref('memos/' + this.user.uid).once('value')
+    .then(result => {
+      if(result.val()) {
+        this.memos = result.val();
+      }
+    })
+  },
   methods: {
     // ログアウト
     logout: function() {
