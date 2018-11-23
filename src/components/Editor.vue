@@ -15,6 +15,7 @@
         </div>
         <button class="addMemoBtn" @click="addMemo">メモの追加</button>
         <button class="deleteMemoBtn" v-if="memos.length > 1" @click="deleteMemo">選択中のメモを削除</button>
+        <button class="saveMemoBtn" @click="saveMemo">メモの保存</button>
       </div>
       <textarea class="markdown" v-model="memos[selectedIndex].markdown"></textarea>
       <div class="preview" v-html="preview()"></div>
@@ -57,6 +58,11 @@ export default {
       if(this.selectedIndex > 0) {
         this.selectedIndex--;
       }
+    },
+    // メモの保存
+    saveMemo: function() {
+      // ユーザーID + メモ
+      firebase.database().ref('memos/' + this.user.uid).set(this.memos);
     },
     selectMemo: function(index) {
       this.selectedIndex = index;
@@ -104,6 +110,10 @@ export default {
 
 .addMemoBtn {
   margin-top: 20px;
+}
+
+.deleteMemoBtn {
+  margin: 10px;
 }
 
 // マークダウンエディタ画面
