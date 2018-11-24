@@ -48,6 +48,20 @@ export default {
       }
     })
   },
+  mounted: function() {
+    document.onkeydown = event => {
+      // command(ctrl) + s キー同時押しでメモ保存関数を実行
+      // metaKey => Mac commandキー
+      // ctrlKey => Windows Ctrlキー
+      if(event.key == 's' && (event.metaKey || event.ctrlKey)) {
+        this.saveMemo();
+        return false;
+      }
+    }
+  },
+  beforeDestroy: function() {
+    document.onkeydown = null;
+  },
   methods: {
     // ログアウト
     logout: function() {
