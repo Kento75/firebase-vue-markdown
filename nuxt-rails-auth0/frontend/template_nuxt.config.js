@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   /*
   ** Headers of the page
   */
@@ -37,6 +37,16 @@ module.exports = {
       }
     }
   },
+  generate: {
+    dir: '../public'
+  },
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ],
+  axios: {
+    baseURL: '/'
+  },
   // SPAモード
   mode: 'spa',
   // auth0
@@ -47,3 +57,10 @@ module.exports = {
   }
 }
 
+if(process.env.NODE_ENV === 'development') {
+  config.proxy = {
+    '/api': 'http://localhost:3000'
+  }
+}
+
+module.exports = config
