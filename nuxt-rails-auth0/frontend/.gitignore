@@ -9,5 +9,9 @@ npm-debug.log
 
 # Nuxt generate
 dist
+<<<<<<< HEAD
 public
+=======
+
+>>>>>>> 4a4ed6e58d7d48509a7174d4a60091acacabb7c3
 nuxt.config.js
