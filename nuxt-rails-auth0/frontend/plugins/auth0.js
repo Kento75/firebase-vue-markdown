@@ -62,6 +62,11 @@ class Auth0Util {
     const expiresAt = window.localStorage.getItem('expiresAt')
     return new Date().getTime() < expiresAt
   }
+
+  // itToken取得
+  getIdToken() {
+    return this.isAuthenticated() ? localStorage.getItem('idToken') : null
+  }
 }
 
 // inject => this.$auth0経由での呼び出しを可能に
