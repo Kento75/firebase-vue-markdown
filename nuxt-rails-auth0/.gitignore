@@ -25,7 +25,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-<<<<<<< HEAD
 public/*
-=======
->>>>>>> 4a4ed6e58d7d48509a7174d4a60091acacabb7c3
